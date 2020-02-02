@@ -1,0 +1,64 @@
+@import "./breakpoints/breakpoints.scss";
+
+$orange: #ff9b54;
+$purple: #ae76a6;
+$blue: #a3c3d9;
+$lOrange: #f8bd7f;
+$gray: #efefef;
+
+.layer {
+  font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 70vh;
+  background: #408593;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  // if the breakpoint is less than or equal to 360px
+  @include media("<=phone") {
+    background-color: #cbd4c2;
+    &:before {
+      content: "Phone viewport";
+    }
+  }
+  // if the breakpoint is greater than 360px and less than or eqaul to 425px
+  @include media(">phone", "<=425px") {
+    background-color: #ff9b54;
+    &:before {
+      content: "Large phone stops at 420px";
+    }
+  }
+
+  // if the screen is going to be greater than 425px and less than or eqaul to 768px
+  @include media(">425px", "<=tablet") {
+    background-color: #ae76a6;
+    &:before {
+      content: "Large phone to tablet";
+    }
+  }
+
+  // if the screen is going to be greater than 768px and less than 1366px
+  @include media(">tablet", "<desktop") {
+    background-color: #a3c3d9;
+    &:before {
+      content: "Tablet to laptop/desktop viewport";
+    }
+  }
+  // if the screen is going to be greater than or equal to 1366px
+  @include media(">=desktop") {
+    background-color: #f8bd7f;
+    &:before {
+      content: "Desktop viewport only";
+    }
+  }
+  // if the screen is going to be greater than or equal to 1920px
+  @include media(">=LGdesktop", "retina2x") {
+    background-color: #efefef;
+    &:before {
+      content: "Large desktop screen";
+    }
+  }
+}
